@@ -1,0 +1,67 @@
+research_task:
+  description: >
+    Conduct comprehensive research on {field} careers in India covering: (1) current job market
+    trends and demand patterns, (2) compensation ranges across experience levels and regions,
+    (3) education requirements, certifications, and skill development pathways, and (4) future
+    outlook including growth potential, work-life balance trends, and AI disruption risks. Use
+    search tools to gather authoritative information.
+
+    Additionally, compile a list of at least 10 high-quality websites that contain valuable
+    information about {field} careers in India. These should include job boards, industry reports,
+    salary surveys, educational institutions, professional associations, and authoritative blogs.
+    For each website, provide a brief description of what specific information can be found there
+    and why it's valuable for our analysis.
+  expected_output: >
+    A comprehensive research document containing structured information on all four aspects of
+    {field} careers in India, with specific data points, statistics, and trends. Include at least
+    3-5 key insights for each aspect, supported by credible sources.
+
+    Additionally, provide a separate section titled "Recommended Websites for Scraping" that lists
+    at least 10 high-quality URLs with brief descriptions of each. These should be organized by
+    category (job market, compensation, education, future outlook) and include an explanation of
+    what specific information each site offers.
+  agent: researcher
+
+web_scraping_task:
+  description: >
+    Extract relevant career data from the websites identified by the researcher agents.
+    Focus on job listings, industry reports, salary surveys, educational institution pages,
+    and professional association sites. Ensure comprehensive collection of job trends, skills,
+    compensation, and future outlook information for {field} in India.
+  expected_output: >
+    Structured data extracted from at least 5 authoritative sources, organized by category
+    (market trends, compensation, education requirements, future outlook). Include source
+    URLs, data collection dates, and any relevant metadata to establish credibility.
+  agent: web_scraper
+
+analysis_writing_task:
+  description: >
+    Analyze the research data and craft a comprehensive career guide for {field} professionals
+    in India with exactly the following seven sections:
+
+    1. Executive Summary: Provide key findings and a concise overview of the {field} career landscape
+    2. Current Market Analysis: Detail job trends, demand patterns, and opportunities in the {field}
+    3. Compensation Overview: Break down salary ranges and benefits across experience levels
+    4. Education & Skill Requirements: Outline qualifications, certifications, and skill paths
+    5. Future Outlook & AI Impact: Analyze growth potential and potential disruption risks
+    6. Strategic Recommendations: Offer tailored advice for entry-level, mid-career, and senior professionals
+    7. Conclusion: Summarize findings and provide final thoughts on next steps
+
+    Ensure each section thoroughly addresses its topic with data-driven insights while maintaining
+    readability and actionability. The document should provide both comprehensive information and
+    practical guidance for professionals at all career stages.
+  expected_output: >
+    A complete career guide in markdown format with exactly the seven specified sections, properly
+    structured with headers, subheaders, bullet points, and emphasis. Each section should synthesize
+    research into actionable insights, with specific recommendations that professionals can implement.
+    The document should read as a cohesive narrative while being comprehensive in its coverage of all
+    aspects of {field} careers.
+  agent: analyst_writer
+
+file_saving_task:
+  description: >
+    Write the markdown content from analysis_writing_task to articles/{field}.md using the
+    FileWriterTool with base path set to articles/. Provide confirmation after successful file creation.
+  expected_output: >
+    Markdown content successfully written to articles/{field}.md with confirmation message.
+  agent: file_manager
