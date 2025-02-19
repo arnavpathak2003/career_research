@@ -119,9 +119,8 @@ pip install crewai-tools
 
    - [Ollama Website](https://ollama.com/)
 
-- **Required Tool:**
-  - **Ollama:** This implementation uses Ollama by default with the Qwen 2.5 model for local execution. Download and install from:
-    - [Ollama Website](https://ollama.com/)
+  - This implementation uses Ollama by default with the Qwen 2.5 model for local execution. Download and install from the above website:
+  
   - After installing Ollama, run this command to pull the required model:
     ```bash
     ollama pull qwen2.5
