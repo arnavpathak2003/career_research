@@ -1,7 +1,7 @@
-
 # Project Documentation: Crew AI Career Research & Analysis
 
 This project is designed to perform in-depth research on career landscapes in India for a specified field. By orchestrating a series of specialized agents, the project:
+
 - **Researches** career trends, compensation, educational requirements, and future outlook.
 - **Extracts** relevant data from curated, high-quality websites.
 - **Analyzes & Writes** a comprehensive career guide.
@@ -26,14 +26,15 @@ The configuration for each agent and task is defined in the `agent.yaml` and `ta
 
 The project uses **Crew AI** to coordinate multiple agents with distinct roles:
 
-- **Researcher Agent:**  
+- **Researcher Agent:**
   Conducts comprehensive career research, analyzing job market trends, compensation, education requirements, and future career prospects for the specified field. It also curates a list of high-quality websites for deeper insights.
 
-- **Web Scraper Agent:**  
+- **Web Scraper Agent:**
   Extracts detailed career data (job listings, salary information, educational details, etc.) from the websites identified by the researcher.
 
-- **Analyst & Writer Agent:**  
+- **Analyst & Writer Agent:**
   Analyzes the research data and produces a well-structured, actionable career guide with the following seven sections:
+
   1. Executive Summary
   2. Current Market Analysis
   3. Compensation Overview
@@ -42,7 +43,7 @@ The project uses **Crew AI** to coordinate multiple agents with distinct roles:
   6. Strategic Recommendations
   7. Conclusion
 
-- **File Manager Agent:**  
+- **File Manager Agent:**
   Saves the final markdown content as `articles/{field}.md` with rigorous file verification to ensure content persistence.
 
 The tasks and goals for these agents are detailed in the YAML files.
@@ -56,46 +57,75 @@ Before setting up the environment, ensure you have the following:
 - **Python:** Version 3.8 or higher.
 - **Virtual Environment:** It is recommended to use a virtual environment to manage dependencies.
 - **Pip:** For installing Python packages.
-- **API Keys:**  
+- **API Keys:**
+
   - **SERPER_API_KEY** (required for search-related functionality)
   - Optionally, **OpenAI** and **Gemini API** keys if you plan to integrate with these services.
 
-- **Optional Tool:**  
+- **Optional Tool:**
   - **Ollama** (if you wish to run the project locally with Ollama support).
-
-
 
 ## Environment Setup
 
-Follow these steps to set up your development environment:
+Choose your preferred method to set up the development environment:
 
-1. **Create and Activate a Virtual Environment**
+### Option 1: Using venv (Python's built-in virtual environment)
 
-   ```bash
-   # Create a virtual environment named 'venv'
-   python -m venv venv
+**Linux/Mac:**
 
-   # Activate the virtual environment (Linux/Mac)
-   source venv/bin/activate
+```bash
+# Create and activate virtual environment (Linux/Mac)
+python3.11 -m venv venv
+source venv/bin/activate
+```
 
-   # Activate the virtual environment (Windows)
-   venv\Scripts\activate
-   ```
+**Windows Command Prompt:**
 
-2. **Install Crew AI Tools**
+```bash
+# Create and activate virtual environment (Windows CMD)
+python3.11 -m venv venv
+venv\Scripts\activate.bat
+```
 
-   Install the Crew AI package along with its tools by running:
+**Windows PowerShell:**
 
-   ```bash
-   pip install crewai[tools]
-   pip install crewai-tools
-   ```
+```bash
+# Create and activate virtual environment (Windows PowerShell)
+python3.11 -m venv venv
+venv\Scripts\Activate.ps1
+```
+
+### Option 2: Using Conda
+
+```bash
+# Create and activate conda environment
+conda create -n crewai-env python=3.11.9
+conda activate crewai-env
+```
+
+### Installing Required Packages
+
+After activating your chosen environment, install the required packages:
+
+```bash
+# Install Crew AI with tools
+pip install crewai[tools]
+pip install crewai-tools
+```
 
 3. **Optional: Install Ollama**
 
    If you want to run the project locally using Ollama, download and install it from the official website:
 
    - [Ollama Website](https://ollama.com/)
+
+- **Required Tool:**
+  - **Ollama:** This implementation uses Ollama by default with the Qwen 2.5 model for local execution. Download and install from:
+    - [Ollama Website](https://ollama.com/)
+  - After installing Ollama, run this command to pull the required model:
+    ```bash
+    ollama pull qwen2.5
+    ```
 
 ---
 
@@ -139,21 +169,19 @@ SERPER_API_KEY=your_serper_api_key_here
 ### Useful Links for API Services
 
 - **OpenAI:** [https://openai.com/](https://openai.com/)
-- **Gemini:** [https://ai.google/](https://ai.google/)  
-  *(Note: Gemini is an evolving offering by Google AI. Check the site for the latest details.)*
+- **Gemini:** [https://ai.google/](https://ai.google/)
+  _(Note: Gemini is an evolving offering by Google AI. Check the site for the latest details.)_
 - **Ollama:** [https://ollama.com/](https://ollama.com/)
 
 ---
 
 ## Additional Information
 
-- **Model Information:**  
-  This project’s agent and task configurations were created using the **Qwen2.5** model.
+- **Model Information:**
+  This project's agent and task configurations were created using the **Qwen2.5** model.
 
-- **Usage:**  
+- **Usage:**
   Customize the `{field}` variable in your YAML files to specify the career field you wish to analyze. Then, use the Crew AI CLI or your preferred method to run the tasks defined in the configuration files.
 
-- **Logging & Verification:**  
+- **Logging & Verification:**
   The File Manager Agent ensures that the final markdown is saved with rigorous verification. Check the logs to confirm that `articles/{field}.md` exists and contains the expected content.
-
-
