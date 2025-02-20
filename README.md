@@ -109,8 +109,8 @@ After activating your chosen environment, install the required packages:
 
 ```bash
 # Install Crew AI with tools
-pip install crewai[tools]
-pip install crewai-tools
+pip install 'crewai[tools]'
+pip install crewai
 ```
 
 3. **Optional: Install Ollama**
